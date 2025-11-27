@@ -21,7 +21,7 @@ export default async function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-[#22330e] text-[#f5efe6]">
+    <section id="gallery" className="py-24 bg-[#2c1810] text-[#f5efe6]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif font-bold text-[#d3a15d] mb-4">Moments at Tree House</h2>

@@ -31,12 +31,12 @@ export default function PreviewMenu() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl font-serif font-bold text-[#22330e] mb-2">Our Favorites</h2>
-            <p className="text-[#3b4022]/80">A glimpse into our kitchen's finest creations.</p>
+            <h2 className="text-4xl font-serif font-bold text-[#2c1810] mb-2">Our Favorites</h2>
+            <p className="text-[#4e342e]/80">A glimpse into our kitchen's finest creations.</p>
           </div>
           <Link 
             href="/menu" 
-            className="px-6 py-3 rounded-full border border-[#3b4022] text-[#3b4022] font-medium hover:bg-[#3b4022] hover:text-[#f5efe6] transition-colors duration-300"
+            className="px-6 py-3 rounded-full border border-[#4e342e] text-[#4e342e] font-medium hover:bg-[#4e342e] hover:text-[#f5efe6] transition-colors duration-300"
           >
             View Full Menu
           </Link>
@@ -62,10 +62,10 @@ export default function PreviewMenu() {
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-[#22330e] font-serif">{item.name}</h3>
+                  <h3 className="text-xl font-bold text-[#2c1810] font-serif">{item.name}</h3>
                   <span className="text-[#d3a15d] font-bold">{item.price}</span>
                 </div>
-                <p className="text-[#3b4022]/70 text-sm mb-4">{item.description}</p>
+                <p className="text-[#4e342e]/70 text-sm mb-4">{item.description}</p>
               </div>
             </motion.div>
           ))}

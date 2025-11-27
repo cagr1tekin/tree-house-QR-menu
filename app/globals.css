@@ -2,12 +2,12 @@
 
 @theme {
   /* TREE-HOUSE Konsepti: Odunsu ve Doğal Tonlar */
-  --color-primary: #5c4033; /* Koyu Odun Kahvesi */
-  --color-primary-dark: #3e2b22; /* Daha Koyu Kahve */
-  --color-primary-light: #8d6e63; /* Açık Ahşap */
-  --color-accent: #4a6741; /* Yaprak Yeşili */
-  --color-background: #f5f5f0; /* Taş/Krem Rengi (Sıcak Beyaz) */
-  --color-surface: #ffffff; /* Beyaz Kartlar */
+  --color-primary: #2c1810; /* Dark Coffee */
+  --color-primary-dark: #1e100a; /* Darker Coffee */
+  --color-primary-light: #4e342e; /* Medium Brown */
+  --color-accent: #d3a15d; /* Gold/Mustard */
+  --color-background: #f5efe6; /* Warm Cream */
+  --color-surface: #ffffff; /* White Cards */
   
   /* Font ayarı: Serif fontu Times New Roman veya benzeri klasik bir font yapıyoruz */
   --font-serif: "Times New Roman", Times, serif;

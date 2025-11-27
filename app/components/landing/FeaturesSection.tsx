@@ -28,7 +28,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-24 bg-[#22330e] text-[#f5efe6]">
+    <section className="py-24 bg-[#2c1810] text-[#f5efe6]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#d3a15d]">Why Choose Us</h2>
@@ -45,9 +45,9 @@ export default function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#3b4022]/50 backdrop-blur-sm p-8 rounded-3xl border border-[#f5efe6]/10 hover:bg-[#3b4022] transition-colors duration-300 group"
+              className="bg-[#4e342e]/50 backdrop-blur-sm p-8 rounded-3xl border border-[#f5efe6]/10 hover:bg-[#4e342e] transition-colors duration-300 group"
             >
-              <div className="mb-6 text-[#d3a15d] bg-[#22330e] w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <div className="mb-6 text-[#d3a15d] bg-[#2c1810] w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 font-serif">{feature.title}</h3>

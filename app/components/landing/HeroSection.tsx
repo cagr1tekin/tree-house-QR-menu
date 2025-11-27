@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2070&auto=format&fit=crop')",
         }}
       >
         {/* Dark Overlay */}
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
           <Link 
             href="#gallery"
-            className="group relative overflow-hidden rounded-full bg-[#d3a15d] px-8 py-3 text-[#22330e] font-semibold transition-all hover:bg-[#e0b374] hover:scale-105 shadow-lg"
+            className="group relative overflow-hidden rounded-full bg-[#d3a15d] px-8 py-3 text-[#2c1810] font-semibold transition-all hover:bg-[#e0b374] hover:scale-105 shadow-lg"
           >
             <span className="relative z-10">Discover Our Place</span>
           </Link>

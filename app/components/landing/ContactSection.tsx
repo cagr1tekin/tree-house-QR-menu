@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="py-24 bg-[#f5efe6] text-[#3b4022]">
+    <section className="py-24 bg-[#f5efe6] text-[#4e342e]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
@@ -17,8 +17,8 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-serif font-bold text-[#22330e]">Visit Us</h2>
-            <p className="text-lg text-[#3b4022]/80">
+            <h2 className="text-4xl font-serif font-bold text-[#2c1810]">Visit Us</h2>
+            <p className="text-lg text-[#4e342e]/80">
               We are located in the heart of the forest, just a short drive from the city center. 
               Come and breathe in the fresh air.
             </p>
@@ -30,7 +30,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Address</h3>
-                  <p className="text-[#3b4022]/70">123 Forest Lane, Green Valley, CA 90210</p>
+                  <p className="text-[#4e342e]/70">123 Forest Lane, Green Valley, CA 90210</p>
                 </div>
               </div>
 
@@ -40,8 +40,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Contact</h3>
-                  <p className="text-[#3b4022]/70">+1 (555) 123-4567</p>
-                  <p className="text-[#3b4022]/70">hello@treehousecafe.com</p>
+                  <p className="text-[#4e342e]/70">+1 (555) 123-4567</p>
+                  <p className="text-[#4e342e]/70">hello@treehousecafe.com</p>
                 </div>
               </div>
 
@@ -51,8 +51,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Opening Hours</h3>
-                  <p className="text-[#3b4022]/70">Mon - Fri: 8:00 AM - 10:00 PM</p>
-                  <p className="text-[#3b4022]/70">Sat - Sun: 9:00 AM - 11:00 PM</p>
+                  <p className="text-[#4e342e]/70">Mon - Fri: 8:00 AM - 10:00 PM</p>
+                  <p className="text-[#4e342e]/70">Sat - Sun: 9:00 AM - 11:00 PM</p>
                 </div>
               </div>
             </div>
