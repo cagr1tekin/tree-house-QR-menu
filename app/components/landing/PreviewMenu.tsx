@@ -6,20 +6,20 @@ import Link from "next/link";
 
 const menuItems = [
   {
-    name: "Avocado Toast",
-    description: "Sourdough bread, smashed avocado, poached egg, chili flakes.",
+    name: "Avokado Tost",
+    description: "Ekşi maya ekmek, ezilmiş avokado, poşe yumurta, pul biber.",
     price: "$12",
     image: "https://images.unsplash.com/photo-1588137372308-15f75323ca8d?q=80&w=1974&auto=format&fit=crop"
   },
   {
-    name: "Forest Berry Bowl",
-    description: "Acai blend, granola, fresh berries, honey, chia seeds.",
+    name: "Orman Meyveli Kase",
+    description: "Acai karışımı, granola, taze meyveler, bal, chia tohumu.",
     price: "$14",
     image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1975&auto=format&fit=crop"
   },
   {
-    name: "Truffle Mushroom Pasta",
-    description: "Handmade tagliatelle, creamy truffle sauce, parmesan.",
+    name: "Trüflü Mantarlı Makarna",
+    description: "El yapımı tagliatelle, kremalı trüf sos, parmesan.",
     price: "$18",
     image: "https://images.unsplash.com/photo-1626844131082-256783844137?q=80&w=1935&auto=format&fit=crop"
   }
@@ -31,14 +31,14 @@ export default function PreviewMenu() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl font-serif font-bold text-[#DFD0B8] mb-2">Our Favorites</h2>
-            <p className="text-[#DFD0B8]/80">A glimpse into our kitchen's finest creations.</p>
+            <h2 className="text-4xl font-serif font-bold text-[#DFD0B8] mb-2">Favorilerimiz</h2>
+            <p className="text-[#DFD0B8]/80">Mutfağımızın en seçkin lezzetlerine bir bakış.</p>
           </div>
           <Link 
             href="/menu" 
             className="px-6 py-3 rounded-full border border-[#DFD0B8] text-[#DFD0B8] font-medium hover:bg-[#DFD0B8] hover:text-[#202020] transition-colors duration-300"
           >
-            View Full Menu
+            Tüm Menüyü Gör
           </Link>
         </div>
 

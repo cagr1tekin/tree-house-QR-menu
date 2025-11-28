@@ -6,33 +6,38 @@ import ProductList from "./components/ProductList";
 
 // Slug'a göre kategori ve ürünleri çeken fonksiyon
 async function getCategoryBySlug(slug: string): Promise<CategoryWithProducts | null> {
-  const supabase = await createClient();
+  try {
+    const supabase = await createClient();
 
-  const { data, error } = await supabase
-    .from("categories")
-    .select(`
-      *,
-      products (
-        *
-      )
-    `)
-    .eq("slug", slug)
-    .single();
+    const { data, error } = await supabase
+      .from("categories")
+      .select(`
+        *,
+        products (
+          *
+        )
+      `)
+      .eq("slug", slug)
+      .single();
 
-  if (error || !data) {
-    console.error("Error fetching category:", error);
+    if (error || !data) {
+      console.error("Error fetching category:", error);
+      return null;
+    }
+
+    // Ürünleri sırala ve filtrele
+    const category = {
+      ...data,
+      products: (data.products || [])
+        .filter((p: any) => p.is_active)
+        .sort((a: any, b: any) => (a.order_index || 0) - (b.order_index || 0)),
+    } as CategoryWithProducts;
+
+    return category;
+  } catch (error) {
+    console.error("Unexpected error fetching category:", error);
     return null;
   }
-
-  // Ürünleri sırala ve filtrele
-  const category = {
-    ...data,
-    products: (data.products || [])
-      .filter((p: any) => p.is_active)
-      .sort((a: any, b: any) => (a.order_index || 0) - (b.order_index || 0)),
-  } as CategoryWithProducts;
-
-  return category;
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -5,19 +5,24 @@ import Image from "next/image";
 
 // Sadece kategorileri çeken fonksiyon
 async function getCategories(): Promise<Category[]> {
-  const supabase = await createClient();
+  try {
+    const supabase = await createClient();
 
-  const { data, error } = await supabase
-    .from("categories")
-    .select("*")
-    .order("order_index", { ascending: true });
+    const { data, error } = await supabase
+      .from("categories")
+      .select("*")
+      .order("order_index", { ascending: true });
 
-  if (error) {
-    console.error("Error fetching categories:", error);
+    if (error) {
+      console.error("Error fetching categories:", error);
+      return [];
+    }
+
+    return data as Category[];
+  } catch (error) {
+    console.error("Unexpected error fetching categories:", error);
     return [];
   }
-
-  return data as Category[];
 }
 
 export default async function MenuPage() {

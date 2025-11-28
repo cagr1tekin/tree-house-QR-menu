@@ -2,13 +2,21 @@ import { createClient } from "@/lib/supabase/server";
 import GalleryGrid from "./GalleryGrid";
 
 export default async function GallerySection() {
-  const supabase = await createClient();
+  let images = null;
   
-  // Fetch images from 'gallery' table
-  const { data: images } = await supabase
-    .from("gallery")
-    .select("*")
-    .order("created_at", { ascending: false });
+  try {
+    const supabase = await createClient();
+    
+    // Fetch images from 'gallery' table
+    const { data } = await supabase
+      .from("gallery")
+      .select("*")
+      .order("created_at", { ascending: false });
+      
+    images = data;
+  } catch (error) {
+    console.error("Gallery fetch error:", error);
+  }
 
   // Fallback dummy images if no data (for initial preview)
   const displayImages = images && images.length > 0 ? images : [

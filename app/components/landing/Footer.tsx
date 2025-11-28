@@ -8,7 +8,7 @@ export default function Footer() {
         
         <div className="flex flex-col items-center md:items-start">
           <h3 className="text-2xl font-serif font-bold text-[#DFD0B8] mb-2">TREE HOUSE</h3>
-          <p className="text-sm text-[#DFD0B8]/60">© 2025 All rights reserved.</p>
+          <p className="text-sm text-[#DFD0B8]/60">© 2025 Tüm hakları saklıdır.</p>
         </div>
 
         <div className="flex gap-6">
