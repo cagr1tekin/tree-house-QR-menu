@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function MenuCategoryGrid({ categories }: { categories: Category[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto px-6 -mt-20 relative z-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto px-6 -mt-12 relative z-20">
       {categories.map((category, index) => (
         <motion.div
           key={category.id}
@@ -22,7 +22,7 @@ export default function MenuCategoryGrid({ categories }: { categories: Category[
               {category.name}
             </h3>
             <p className="text-[#DFD0B8]/60 text-sm font-medium tracking-widest camelcase pl-2 group-hover:text-[#DFD0B8] transition-colors">
-              Explore Our Selections
+              Seçeneklerimizi Keşfedin
             </p>
           </Link>
         </motion.div>

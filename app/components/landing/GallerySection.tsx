@@ -24,9 +24,9 @@ export default async function GallerySection() {
     <section id="gallery" className="py-24 bg-[#181818] text-[#DFD0B8]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-[#DFD0B8] mb-4">Moments at Tree House</h2>
+          <h2 className="text-4xl font-serif font-bold text-[#DFD0B8] mb-4">Tree House'da Anlar</h2>
           <p className="text-[#DFD0B8]/70 max-w-2xl mx-auto">
-            Capturing the essence of our culinary journey and atmosphere.
+            Mutfak yolculuğumuzun ve atmosferimizin özünü yakalıyoruz.
           </p>
         </div>
 

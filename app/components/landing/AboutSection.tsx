@@ -18,19 +18,18 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#DFD0B8]">
-              A Sanctuary in Nature
+              İki Dünya, Tek Mekan
             </h2>
             <div className="h-1 w-20 bg-[#DFD0B8]"></div>
             <p className="text-lg leading-relaxed text-[#DFD0B8]/80">
-              Nestled amongst the trees, our cafe offers a unique escape from the bustling city life. 
-              We believe in the power of nature to heal and rejuvenate. Every corner of our space 
-              is designed to bring you closer to the earth, with open-air seating, natural wood 
-              interiors, and a peaceful ambiance.
+              Tree House, iki benzersiz deneyimi tek bir çatı altında buluşturuyor. Bir yanda, 
+              doğanın içinde huzurlu bir sığınak sunan <strong>Coffee & Tea</strong> salonumuz, 
+              dinlenmek ve özel harmanların tadını çıkarmak için mükemmeldir.
             </p>
             <p className="text-lg leading-relaxed text-[#DFD0B8]/80">
-              Our menu is crafted with love, using only the freshest organic ingredients sourced 
-              from local farmers. Whether you're here for a morning coffee or a sunset dinner, 
-              Tree House promises an unforgettable experience.
+              Diğer yanda, <strong>Gamehall</strong> eğlence ve sosyal etkileşim için canlı bir atmosfer sunuyor. 
+              İster kitap okumak için sessiz bir köşe, ister arkadaşlarınızla heyecanlı bir oyun gecesi arıyor olun, 
+              sizin için mükemmel bir yerimiz var.
             </p>
           </motion.div>
 

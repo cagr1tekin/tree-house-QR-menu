@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, Coffee, Sun, Star } from "lucide-react";
+import { Leaf, Coffee, Gamepad2, Users } from "lucide-react";
 
 const features = [
   {
-    icon: <Leaf className="w-8 h-8" />,
-    title: "Organic & Fresh",
-    description: "We source our ingredients directly from local organic farms to ensure the highest quality and taste."
-  },
-  {
-    icon: <Sun className="w-8 h-8" />,
-    title: "Outdoor Ambiance",
-    description: "Enjoy your meal in our beautiful open-air treehouse setting, surrounded by lush greenery."
-  },
-  {
     icon: <Coffee className="w-8 h-8" />,
-    title: "Artisan Coffee",
-    description: "Our baristas craft the perfect cup using premium beans roasted to perfection."
+    title: "Premium Coffee & Tea",
+    description: "Uzman baristalar tarafından mükemmel tat için hazırlanan özel harmanlarımızın ve organik çaylarımızın tadını çıkarın."
   },
   {
-    icon: <Star className="w-8 h-8" />,
-    title: "Premium Service",
-    description: "Experience warm, attentive hospitality that makes you feel right at home."
+    icon: <Gamepad2 className="w-8 h-8" />,
+    title: "Gamehall Eğlencesi",
+    description: "Bilardodan masa oyunlarına kadar geniş oyun seçeneklerimizle eğlenceye dalın."
+  },
+  {
+    icon: <Leaf className="w-8 h-8" />,
+    title: "Doğal Atmosfer",
+    description: "Sizi doğaya daha da yakınlaştırmak için tasarlanmış benzersiz ağaç ev ortamımızda rahatlayın."
+  },
+  {
+    icon: <Users className="w-8 h-8" />,
+    title: "Sosyal Buluşma",
+    description: "Arkadaşlarınız ve ailenizle bağlantı kurmak, oyun oynamak ve anları paylaşmak için mükemmel buluşma noktası."
   }
 ];
 
@@ -31,9 +31,9 @@ export default function FeaturesSection() {
     <section className="py-24 bg-[#202020] text-[#DFD0B8]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#DFD0B8]">Why Choose Us</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#DFD0B8]">Neden Biz?</h2>
           <p className="text-[#DFD0B8]/70 max-w-2xl mx-auto">
-            We are more than just a cafe; we are a destination for those who seek quality, nature, and peace.
+            Biz sadece bir kafeden fazlasıyız; kalite, doğa ve huzur arayanlar için bir varış noktasıyız.
           </p>
         </div>
 

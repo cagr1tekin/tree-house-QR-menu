@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -23,25 +24,60 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center w-full max-w-6xl"
         >
-          {/* Logo Placeholder */}
-          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
-            <span className="text-5xl">🌲</span>
-          </div>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-48 mb-16 w-full">
+            
+            {/* Coffee & Tea */}
+            <div className="flex flex-col items-center gap-6 group">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full bg-[#DFD0B8] shadow-[0_0_30px_rgba(223,208,184,0.2)] p-6 transition-transform duration-500 group-hover:scale-105">
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Coffee & Tea Logo" 
+                    fill
+                    className="object-contain opacity-90"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#DFD0B8] tracking-wide mb-1">TREE HOUSE</h1>
+                <h2 className="text-xl font-serif font-bold text-[#DFD0B8]/90 tracking-wider">COFFEE & TEA</h2>
+                <span className="text-sm text-[#DFD0B8]/70 uppercase tracking-widest mt-2">Doğal Demlemeler</span>
+              </div>
+            </div>
 
-          <h1 className="mb-4 font-serif text-5xl font-bold text-[#DFD0B8] drop-shadow-lg md:text-7xl tracking-wide">
-            TREE HOUSE
-          </h1>
-          <p className="mb-8 max-w-lg text-lg font-light text-[#DFD0B8]/90 md:text-xl tracking-widest uppercase">
-            Experience Nature & Taste
-          </p>
+            {/* Divider */}
+            <div className="hidden md:block w-px h-48 bg-[#DFD0B8]/20"></div>
+
+            {/* Gamehall */}
+            <div className="flex flex-col items-center gap-6 group">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full bg-[#DFD0B8] shadow-[0_0_30px_rgba(223,208,184,0.2)] p-6 transition-transform duration-500 group-hover:scale-105">
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Gamehall Logo" 
+                    fill
+                    className="object-contain opacity-90"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#DFD0B8] tracking-wide mb-1">TREE HOUSE</h1>
+                <h2 className="text-xl font-serif font-bold text-[#DFD0B8]/90 tracking-wider">GAMEHALL</h2>
+                <span className="text-sm text-[#DFD0B8]/70 uppercase tracking-widest mt-2">Eğlence & Oyunlar</span>
+              </div>
+            </div>
+
+          </div>
 
           <Link 
             href="#gallery"
-            className="group relative overflow-hidden rounded-full bg-[#DFD0B8] px-8 py-3 text-[#202020] font-semibold transition-all hover:bg-[#DFD0B8]/90 hover:scale-105 shadow-lg"
+            className="group relative overflow-hidden rounded-full bg-[#DFD0B8] px-10 py-4 text-[#202020] font-semibold transition-all hover:bg-[#DFD0B8]/90 hover:scale-105 shadow-lg mt-12"
           >
-            <span className="relative z-10">Discover Our Place</span>
+            <span className="relative z-10 tracking-widest uppercase text-sm">Mekanımızı Keşfedin</span>
           </Link>
         </motion.div>
       </div>
@@ -54,7 +90,7 @@ export default function HeroSection() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#DFD0B8]/70"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <span className="text-xs uppercase tracking-widest">Kaydır</span>
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}

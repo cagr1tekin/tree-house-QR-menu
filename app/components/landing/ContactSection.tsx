@@ -17,10 +17,10 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-serif font-bold text-[#DFD0B8]">Visit Us</h2>
+            <h2 className="text-4xl font-serif font-bold text-[#DFD0B8]">Bizi Ziyaret Edin</h2>
             <p className="text-lg text-[#DFD0B8]/80">
-              We are located in the heart of the forest, just a short drive from the city center. 
-              Come and breathe in the fresh air.
+              Ormanın kalbinde, şehir merkezine sadece kısa bir sürüş mesafesindeyiz. 
+              Gelin ve temiz havayı içinize çekin.
             </p>
 
             <div className="space-y-6">
@@ -29,7 +29,7 @@ export default function ContactSection() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Address</h3>
+                  <h3 className="font-bold text-lg">Adres</h3>
                   <p className="text-[#DFD0B8]/70">123 Forest Lane, Green Valley, CA 90210</p>
                 </div>
               </div>
@@ -39,7 +39,7 @@ export default function ContactSection() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Contact</h3>
+                  <h3 className="font-bold text-lg">İletişim</h3>
                   <p className="text-[#DFD0B8]/70">+1 (555) 123-4567</p>
                   <p className="text-[#DFD0B8]/70">hello@treehousecafe.com</p>
                 </div>
@@ -50,9 +50,9 @@ export default function ContactSection() {
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Opening Hours</h3>
-                  <p className="text-[#DFD0B8]/70">Mon - Fri: 8:00 AM - 10:00 PM</p>
-                  <p className="text-[#DFD0B8]/70">Sat - Sun: 9:00 AM - 11:00 PM</p>
+                  <h3 className="font-bold text-lg">Çalışma Saatleri</h3>
+                  <p className="text-[#DFD0B8]/70">Pzt - Cum: 8:00 - 22:00</p>
+                  <p className="text-[#DFD0B8]/70">Cmt - Paz: 9:00 - 23:00</p>
                 </div>
               </div>
             </div>
