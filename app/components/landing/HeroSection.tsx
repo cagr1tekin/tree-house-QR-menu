@@ -30,16 +30,16 @@ export default function HeroSection() {
             <span className="text-5xl">🌲</span>
           </div>
 
-          <h1 className="mb-4 font-serif text-5xl font-bold text-[#f5efe6] drop-shadow-lg md:text-7xl tracking-wide">
+          <h1 className="mb-4 font-serif text-5xl font-bold text-[#DFD0B8] drop-shadow-lg md:text-7xl tracking-wide">
             TREE HOUSE
           </h1>
-          <p className="mb-8 max-w-lg text-lg font-light text-[#f5efe6]/90 md:text-xl tracking-widest uppercase">
+          <p className="mb-8 max-w-lg text-lg font-light text-[#DFD0B8]/90 md:text-xl tracking-widest uppercase">
             Experience Nature & Taste
           </p>
 
           <Link 
             href="#gallery"
-            className="group relative overflow-hidden rounded-full bg-[#d3a15d] px-8 py-3 text-[#2c1810] font-semibold transition-all hover:bg-[#e0b374] hover:scale-105 shadow-lg"
+            className="group relative overflow-hidden rounded-full bg-[#DFD0B8] px-8 py-3 text-[#202020] font-semibold transition-all hover:bg-[#DFD0B8]/90 hover:scale-105 shadow-lg"
           >
             <span className="relative z-10">Discover Our Place</span>
           </Link>
@@ -51,16 +51,16 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#f5efe6]/70"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#DFD0B8]/70"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="h-6 w-4 rounded-full border-2 border-[#f5efe6]/50 flex justify-center pt-1"
+            className="h-6 w-4 rounded-full border-2 border-[#DFD0B8]/50 flex justify-center pt-1"
           >
-            <div className="h-1.5 w-1 bg-[#f5efe6] rounded-full" />
+            <div className="h-1.5 w-1 bg-[#DFD0B8] rounded-full" />
           </motion.div>
         </div>
       </motion.div>

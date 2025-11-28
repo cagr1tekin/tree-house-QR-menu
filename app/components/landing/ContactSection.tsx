@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="py-24 bg-[#f5efe6] text-[#4e342e]">
+    <section className="py-24 bg-[#202020] text-[#DFD0B8]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
@@ -17,42 +17,42 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-serif font-bold text-[#2c1810]">Visit Us</h2>
-            <p className="text-lg text-[#4e342e]/80">
+            <h2 className="text-4xl font-serif font-bold text-[#DFD0B8]">Visit Us</h2>
+            <p className="text-lg text-[#DFD0B8]/80">
               We are located in the heart of the forest, just a short drive from the city center. 
               Come and breathe in the fresh air.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-[#d3a15d]/20 p-3 rounded-full text-[#d3a15d]">
+                <div className="bg-[#DFD0B8]/20 p-3 rounded-full text-[#DFD0B8]">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Address</h3>
-                  <p className="text-[#4e342e]/70">123 Forest Lane, Green Valley, CA 90210</p>
+                  <p className="text-[#DFD0B8]/70">123 Forest Lane, Green Valley, CA 90210</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-[#d3a15d]/20 p-3 rounded-full text-[#d3a15d]">
+                <div className="bg-[#DFD0B8]/20 p-3 rounded-full text-[#DFD0B8]">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Contact</h3>
-                  <p className="text-[#4e342e]/70">+1 (555) 123-4567</p>
-                  <p className="text-[#4e342e]/70">hello@treehousecafe.com</p>
+                  <p className="text-[#DFD0B8]/70">+1 (555) 123-4567</p>
+                  <p className="text-[#DFD0B8]/70">hello@treehousecafe.com</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-[#d3a15d]/20 p-3 rounded-full text-[#d3a15d]">
+                <div className="bg-[#DFD0B8]/20 p-3 rounded-full text-[#DFD0B8]">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Opening Hours</h3>
-                  <p className="text-[#4e342e]/70">Mon - Fri: 8:00 AM - 10:00 PM</p>
-                  <p className="text-[#4e342e]/70">Sat - Sun: 9:00 AM - 11:00 PM</p>
+                  <p className="text-[#DFD0B8]/70">Mon - Fri: 8:00 AM - 10:00 PM</p>
+                  <p className="text-[#DFD0B8]/70">Sat - Sun: 9:00 AM - 11:00 PM</p>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[400px] w-full bg-[#e5e0d8] rounded-3xl overflow-hidden shadow-lg relative"
+            className="h-[400px] w-full bg-[#333333] rounded-3xl overflow-hidden shadow-lg relative"
           >
             {/* Replace with actual Google Maps iframe */}
             <iframe 

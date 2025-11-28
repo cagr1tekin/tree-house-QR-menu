@@ -8,7 +8,7 @@ import Footer from "./components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f5efe6] selection:bg-[#d3a15d] selection:text-[#2c1810]">
+    <main className="min-h-screen bg-[#202020] selection:bg-[#DFD0B8] selection:text-[#202020]">
       <HeroSection />
       <AboutSection />
       <FeaturesSection />

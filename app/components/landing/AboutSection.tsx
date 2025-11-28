@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 bg-[#f5efe6] text-[#4e342e] overflow-hidden">
+    <section className="relative py-24 bg-[#181818] text-[#DFD0B8] overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
           
@@ -17,17 +17,17 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2c1810]">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#DFD0B8]">
               A Sanctuary in Nature
             </h2>
-            <div className="h-1 w-20 bg-[#d3a15d]"></div>
-            <p className="text-lg leading-relaxed text-[#4e342e]/80">
+            <div className="h-1 w-20 bg-[#DFD0B8]"></div>
+            <p className="text-lg leading-relaxed text-[#DFD0B8]/80">
               Nestled amongst the trees, our cafe offers a unique escape from the bustling city life. 
               We believe in the power of nature to heal and rejuvenate. Every corner of our space 
               is designed to bring you closer to the earth, with open-air seating, natural wood 
               interiors, and a peaceful ambiance.
             </p>
-            <p className="text-lg leading-relaxed text-[#4e342e]/80">
+            <p className="text-lg leading-relaxed text-[#DFD0B8]/80">
               Our menu is crafted with love, using only the freshest organic ingredients sourced 
               from local farmers. Whether you're here for a morning coffee or a sunset dinner, 
               Tree House promises an unforgettable experience.
@@ -49,7 +49,7 @@ export default function AboutSection() {
               className="object-cover hover:scale-105 transition-transform duration-700"
             />
             {/* Decorative Frame */}
-            <div className="absolute inset-4 border border-[#f5efe6]/30 rounded-2xl pointer-events-none"></div>
+            <div className="absolute inset-4 border border-[#DFD0B8]/30 rounded-2xl pointer-events-none"></div>
           </motion.div>
 
         </div>

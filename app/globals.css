@@ -2,12 +2,12 @@
 
 @theme {
   /* TREE-HOUSE Konsepti: Odunsu ve Doğal Tonlar */
-  --color-primary: #2c1810; /* Dark Coffee */
-  --color-primary-dark: #1e100a; /* Darker Coffee */
-  --color-primary-light: #4e342e; /* Medium Brown */
-  --color-accent: #d3a15d; /* Gold/Mustard */
-  --color-background: #f5efe6; /* Warm Cream */
-  --color-surface: #ffffff; /* White Cards */
+  --color-primary: #DFD0B8; /* Beige Text */
+  --color-primary-dark: #202020; /* Neutral Dark Background */
+  --color-primary-light: #333333; /* Neutral Card Background */
+  --color-accent: #DFD0B8; /* Beige Accent */
+  --color-background: #202020; /* Neutral Dark Background */
+  --color-surface: #333333; /* Neutral Dark Grey Cards */
   
   /* Font ayarı: Serif fontu Times New Roman veya benzeri klasik bir font yapıyoruz */
   --font-serif: "Times New Roman", Times, serif;
