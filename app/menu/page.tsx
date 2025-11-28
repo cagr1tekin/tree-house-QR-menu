@@ -3,6 +3,8 @@ import { Category } from "@/types";
 import MenuCategoryGrid from "./components/MenuCategoryGrid";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 // Sadece kategorileri çeken fonksiyon
 async function getCategories(): Promise<Category[]> {
   try {

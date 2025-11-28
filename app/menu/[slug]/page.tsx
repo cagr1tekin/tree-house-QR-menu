@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductList from "./components/ProductList";
 
+export const dynamic = "force-dynamic";
+
 // Slug'a göre kategori ve ürünleri çeken fonksiyon
 async function getCategoryBySlug(slug: string): Promise<CategoryWithProducts | null> {
   try {
