@@ -17,12 +17,8 @@ export default function ProductList({ products }: { products: Product[] }) {
           </div>
         ) : (
           products.map((product, index) => (
-            <motion.div
+            <div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
               onClick={() => setSelectedProduct(product)}
               className="group bg-[#333333] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-row items-center p-3 gap-4 h-auto border border-[#DFD0B8]/10 hover:border-[#DFD0B8]/50"
             >
@@ -71,7 +67,7 @@ export default function ProductList({ products }: { products: Product[] }) {
                   </p>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))
         )}
       </div>
