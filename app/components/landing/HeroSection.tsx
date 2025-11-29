@@ -33,7 +33,7 @@ export default function HeroSection() {
               <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full bg-[#DFD0B8] shadow-[0_0_30px_rgba(223,208,184,0.2)] p-6 transition-transform duration-500 group-hover:scale-105">
                 <div className="relative w-full h-full">
                   <Image 
-                    src="/logo.png" 
+                    src="/og-image.jpg" 
                     alt="Coffee & Tea Logo" 
                     fill
                     className="object-contain opacity-90"
@@ -56,7 +56,7 @@ export default function HeroSection() {
               <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full bg-[#DFD0B8] shadow-[0_0_30px_rgba(223,208,184,0.2)] p-6 transition-transform duration-500 group-hover:scale-105">
                 <div className="relative w-full h-full">
                   <Image 
-                    src="/logo.png" 
+                    src="/og-image.jpg" 
                     alt="Gamehall Logo" 
                     fill
                     className="object-contain opacity-90"

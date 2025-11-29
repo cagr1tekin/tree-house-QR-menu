@@ -37,7 +37,7 @@ export default async function MenuPage() {
         <div className="relative w-28 h-28 mb-6 flex items-center justify-center rounded-full bg-[#DFD0B8] shadow-2xl p-5">
           <div className="relative w-full h-full">
             <Image 
-              src="/logo.png" 
+              src="/og-image.jpg" 
               alt="Tree House Logo" 
               fill
               className="object-contain opacity-90"
