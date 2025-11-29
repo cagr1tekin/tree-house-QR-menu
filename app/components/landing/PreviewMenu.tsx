@@ -1,31 +1,11 @@
 "use client";
 
+import { Product } from "@/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const menuItems = [
-  {
-    name: "Avokado Tost",
-    description: "Ekşi maya ekmek, ezilmiş avokado, poşe yumurta, pul biber.",
-    price: "$12",
-    image: "https://images.unsplash.com/photo-1588137372308-15f75323ca8d?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    name: "Orman Meyveli Kase",
-    description: "Acai karışımı, granola, taze meyveler, bal, chia tohumu.",
-    price: "$14",
-    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1975&auto=format&fit=crop"
-  },
-  {
-    name: "Trüflü Mantarlı Makarna",
-    description: "El yapımı tagliatelle, kremalı trüf sos, parmesan.",
-    price: "$18",
-    image: "https://images.unsplash.com/photo-1626844131082-256783844137?q=80&w=1935&auto=format&fit=crop"
-  }
-];
-
-export default function PreviewMenu() {
+export default function PreviewMenu({ products }: { products: Product[] }) {
   return (
     <section className="py-24 bg-[#202020]">
       <div className="container mx-auto px-6 md:px-12">
@@ -43,29 +23,39 @@ export default function PreviewMenu() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {menuItems.map((item, index) => (
+          {products.map((item, index) => (
             <motion.div
-              key={index}
+              key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-[#333333] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-64 w-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+              <div className="relative h-64 w-full overflow-hidden bg-[#1a1a1a]">
+                {item.image_url ? (
+                  <Image
+                    src={item.image_url}
+                    alt={item.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-[#DFD0B8]/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl font-bold text-[#DFD0B8] font-serif">{item.name}</h3>
-                  <span className="text-[#DFD0B8] font-bold">{item.price}</span>
+                  <span className="text-[#DFD0B8] font-bold">{item.price} {item.currency}</span>
                 </div>
-                <p className="text-[#DFD0B8]/70 text-sm mb-4">{item.description}</p>
+                {item.description && (
+                  <p className="text-[#DFD0B8]/70 text-sm mb-4 line-clamp-2">{item.description}</p>
+                )}
               </div>
             </motion.div>
           ))}

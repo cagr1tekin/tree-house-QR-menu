@@ -22,8 +22,15 @@ async function getCategoryBySlug(slug: string): Promise<CategoryWithProducts | n
       .eq("slug", slug)
       .single();
 
-    if (error || !data) {
-      console.error("Error fetching category:", error);
+    if (error) {
+      // PGRST116: JSON object could not be generated (usually means no rows found)
+      if (error.code !== 'PGRST116') {
+        console.error("Error fetching category:", error);
+      }
+      return null;
+    }
+
+    if (!data) {
       return null;
     }
 

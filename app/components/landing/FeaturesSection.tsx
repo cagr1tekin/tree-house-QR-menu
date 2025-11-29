@@ -12,7 +12,7 @@ const features = [
   {
     icon: <Gamepad2 className="w-8 h-8" />,
     title: "Gamehall Eğlencesi",
-    description: "Bilardodan masa oyunlarına kadar geniş oyun seçeneklerimizle eğlenceye dalın."
+    description: "Zengin kutu oyunlarımız sayesinde keyifli ve sosyal bir oyun deneyimi yaşayabilirsiniz. Sizi kaliteli zaman geçirmeye davet ediyoruz."
   },
   {
     icon: <Leaf className="w-8 h-8" />,

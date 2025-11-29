@@ -3,6 +3,17 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
+// --- İLETİŞİM BİLGİLERİ VE HARİTA AYARLARI ---
+const CONTACT_INFO = {
+  address: "Altı Eylül, Çiğdem Sk. No:5, 10100 Merkez/Balıkesir", // Buraya açık adresi yaz
+  phone: "+1 (555) 123-4567",
+  email: "hello@treehousecafe.com",
+  hours: "11:00–02:00 (Her Gün)"
+};
+
+// Google Maps'ten "Harita Yerleştir" (Embed) diyerek aldığın iframe src linkini buraya yapıştır.
+const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d397.7915708384436!2d27.882521881182733!3d39.644149563330224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b701a5c1a1561d%3A0xe9bdb883df986773!2sTreeHouse%20Coffee%20Shop!5e0!3m2!1str!2str!4v1764449689101!5m2!1str!2str";
+
 export default function ContactSection() {
   return (
     <section className="py-24 bg-[#202020] text-[#DFD0B8]">
@@ -19,8 +30,7 @@ export default function ContactSection() {
           >
             <h2 className="text-4xl font-serif font-bold text-[#DFD0B8]">Bizi Ziyaret Edin</h2>
             <p className="text-lg text-[#DFD0B8]/80">
-              Ormanın kalbinde, şehir merkezine sadece kısa bir sürüş mesafesindeyiz. 
-              Gelin ve temiz havayı içinize çekin.
+Şehrin kalbinde, kolay ulaşılabilir konumumuzla hizmetinizdeyiz. Yoğun geçen gününüze mola verin, şehrin içinde konforlu ve ferah bir atmosferin keyfini çıkarın.
             </p>
 
             <div className="space-y-6">
@@ -30,7 +40,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Adres</h3>
-                  <p className="text-[#DFD0B8]/70">123 Forest Lane, Green Valley, CA 90210</p>
+                  <p className="text-[#DFD0B8]/70">{CONTACT_INFO.address}</p>
                 </div>
               </div>
 
@@ -40,8 +50,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">İletişim</h3>
-                  <p className="text-[#DFD0B8]/70">+1 (555) 123-4567</p>
-                  <p className="text-[#DFD0B8]/70">hello@treehousecafe.com</p>
+                  <p className="text-[#DFD0B8]/70">{CONTACT_INFO.phone}  -  {CONTACT_INFO.email}</p>
                 </div>
               </div>
 
@@ -51,8 +60,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Çalışma Saatleri</h3>
-                  <p className="text-[#DFD0B8]/70">Pzt - Cum: 8:00 - 22:00</p>
-                  <p className="text-[#DFD0B8]/70">Cmt - Paz: 9:00 - 23:00</p>
+                  <p className="text-[#DFD0B8]/70">{CONTACT_INFO.hours}</p>
                 </div>
               </div>
             </div>
@@ -68,7 +76,7 @@ export default function ContactSection() {
           >
             {/* Replace with actual Google Maps iframe */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153169!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d22e3189d293!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1645678901234!5m2!1sen!2sau" 
+              src={GOOGLE_MAPS_EMBED_URL}
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
