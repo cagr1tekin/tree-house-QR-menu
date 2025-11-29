@@ -15,9 +15,9 @@
 }
 
 :root {
-  --foreground-rgb: 41, 37, 36; /* Stone-800 */
-  --background-start-rgb: 245, 245, 240; 
-  --background-end-rgb: 245, 245, 240;
+  --foreground-rgb: 223, 208, 184; /* #DFD0B8 */
+  --background-start-rgb: 32, 32, 32; /* #202020 */
+  --background-end-rgb: 32, 32, 32;
 }
 
 body {
