@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <div className="h-[1px] w-6 bg-[#DFD0B8]"></div>
         </div>
 
-        <p className="text-[#DFD0B8]/80 text-xs font-medium tracking-[0.3em] uppercase text-shadow-sm">
+        <p className="text-[#DFD0B8]/80 text-xs font-medium tracking-[0.3em] uppercase text-shadow-sm" translate="no">
           Tree House Menü
         </p>
       </header>
