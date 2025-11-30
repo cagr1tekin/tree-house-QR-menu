@@ -15,8 +15,10 @@ async function getCategoryBySlug(slug: string): Promise<CategoryWithProducts | n
       .from("categories")
       .select(`
         *,
+        subcategories (*),
         products (
-          *
+          *,
+          subcategories (*)
         )
       `)
       .eq("slug", slug)
@@ -37,6 +39,7 @@ async function getCategoryBySlug(slug: string): Promise<CategoryWithProducts | n
     // Ürünleri sırala ve filtrele
     const category = {
       ...data,
+      subcategories: (data.subcategories || []).sort((a: any, b: any) => (a.order_index || 0) - (b.order_index || 0)),
       products: (data.products || [])
         .filter((p: any) => p.is_active)
         .sort((a: any, b: any) => (a.order_index || 0) - (b.order_index || 0)),
@@ -68,7 +71,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </svg>
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-[#DFD0B8] tracking-wide drop-shadow-xl font-serif mb-2 px-4">
+        <h1 className="text-5xl md:text-6xl font-bold text-[#DFD0B8] tracking-wide drop-shadow-xl font-serif mb-2 px-4">
           {category.name}
         </h1>
         
@@ -85,7 +88,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
       {/* Products List (Client Component) */}
       <div className="relative z-10 -mt-10 px-4">
-        <ProductList products={category.products} />
+        <ProductList products={category.products} subcategories={category.subcategories} />
       </div>
     </main>
   );

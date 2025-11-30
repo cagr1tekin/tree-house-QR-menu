@@ -1,78 +1,98 @@
 "use client";
 
-import { Product } from "@/types";
+import React, { useState } from "react";
+import { Product, Subcategory } from "@/types";
 import Image from "next/image";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ProductList({ products }: { products: Product[] }) {
+export default function ProductList({ products, subcategories }: { products: Product[], subcategories: Subcategory[] }) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  // Group products by subcategory
+  const groupedProducts = subcategories.map(sub => ({
+    subcategory: sub,
+    products: products.filter(p => p.subcategory_id === sub.id)
+  })).filter(group => group.products.length > 0);
+
+  // Products without subcategory
+  const productsWithoutSubcategory = products.filter(p => !p.subcategory_id);
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto pb-10">
         {products.length === 0 ? (
-          <div className="col-span-full text-center py-10 text-[#DFD0B8]/60">
+          <div className="text-center py-10 text-[#DFD0B8]/60">
             <p>Bu kategoride henüz ürün bulunmuyor.</p>
           </div>
         ) : (
-          products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => setSelectedProduct(product)}
-              className="group bg-[#333333] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-row items-center p-3 gap-4 h-auto border border-[#DFD0B8]/10 hover:border-[#DFD0B8]/50"
-            >
-              {/* Product Image */}
-              <div className="relative w-24 h-24 flex-shrink-0 bg-[#202020] overflow-hidden rounded-xl">
-                {product.image_url ? (
-                  <Image
-                    src={product.image_url}
-                    alt={product.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-[#DFD0B8]/20 bg-[#202020]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-8 h-8"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                      />
-                    </svg>
+          <>
+            {/* Render grouped products */}
+            {groupedProducts.map((group) => (
+              <div key={group.subcategory.id} className="mb-10">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="relative flex items-center justify-center">
+                    {/* Decorative Lines */}
+                    <div className="w-8 h-[1px] bg-[#DFD0B8]/40 mr-4"></div>
+                    
+                    {/* Pill Label */}
+                    <div className="px-6 py-2 bg-[#202020] border border-[#DFD0B8]/20 rounded-full shadow-xl z-10">
+                      <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase">
+                        {group.subcategory.name}
+                      </h4>
+                    </div>
+
+                    {/* Decorative Lines */}
+                    <div className="w-8 h-[1px] bg-[#DFD0B8]/40 ml-4"></div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {group.products.map((product, index) => (
+                    <ProductCard 
+                      key={product.id} 
+                      product={product} 
+                      index={index} 
+                      onClick={() => setSelectedProduct(product)} 
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Render products without subcategory */}
+            {productsWithoutSubcategory.length > 0 && (
+              <div className="mb-10">
+                {groupedProducts.length > 0 && (
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative flex items-center justify-center">
+                      {/* Decorative Lines */}
+                      <div className="w-8 h-[1px] bg-[#DFD0B8]/40 mr-4"></div>
+                      
+                      {/* Pill Label */}
+                      <div className="px-6 py-2 bg-[#202020] border border-[#DFD0B8]/20 rounded-full shadow-xl z-10">
+                        <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase">
+                          Diğer
+                        </h4>
+                      </div>
+
+                      {/* Decorative Lines */}
+                      <div className="w-8 h-[1px] bg-[#DFD0B8]/40 ml-4"></div>
+                    </div>
                   </div>
                 )}
-              </div>
-
-              {/* Product Details */}
-              <div className="flex-1 flex flex-col justify-center">
-                <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-bold text-lg text-[#DFD0B8] leading-tight font-serif group-hover:text-[#DFD0B8]/80 transition-colors">
-                    {product.name}
-                  </h3>
-                  <span className="font-bold text-[#DFD0B8] text-base whitespace-nowrap ml-2">
-                    {product.price} {product.currency}
-                  </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {productsWithoutSubcategory.map((product, index) => (
+                    <ProductCard 
+                      key={product.id} 
+                      product={product} 
+                      index={index} 
+                      onClick={() => setSelectedProduct(product)} 
+                    />
+                  ))}
                 </div>
-                {product.description && (
-                  <p className="text-xs text-[#DFD0B8]/70 line-clamp-2 leading-relaxed">
-                    {product.description}
-                  </p>
-                )}
               </div>
-            </motion.div>
-          ))
+            )}
+          </>
         )}
       </div>
 
@@ -147,5 +167,64 @@ export default function ProductList({ products }: { products: Product[] }) {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+function ProductCard({ product, index, onClick }: { product: Product, index: number, onClick: () => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      onClick={onClick}
+      className="group bg-[#333333] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-row items-center p-3 gap-4 h-auto border border-[#DFD0B8]/10 hover:border-[#DFD0B8]/50"
+    >
+      {/* Product Image */}
+      <div className="relative w-24 h-24 flex-shrink-0 bg-[#202020] overflow-hidden rounded-xl">
+        {product.image_url ? (
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-[#DFD0B8]/20 bg-[#202020]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
+
+      {/* Product Details */}
+      <div className="flex-1 flex flex-col justify-center">
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="font-bold text-lg text-[#DFD0B8] leading-tight font-serif group-hover:text-[#DFD0B8]/80 transition-colors">
+            {product.name}
+          </h3>
+          <span className="font-bold text-[#DFD0B8] text-base whitespace-nowrap ml-2">
+            {product.price} {product.currency}
+          </span>
+        </div>
+        {product.description && (
+          <p className="text-xs text-[#DFD0B8]/70 line-clamp-2 leading-relaxed">
+            {product.description}
+          </p>
+        )}
+      </div>
+    </motion.div>
   );
 }
