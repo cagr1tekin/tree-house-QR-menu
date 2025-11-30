@@ -5,6 +5,13 @@ import { loginUser, changePassword } from "./actions";
 import { Category, Product, Subcategory } from "@/types";
 import Image from "next/image";
 import { sha256 } from "@/lib/crypto";
+import { Trash2, Upload, Loader2 } from "lucide-react";
+
+interface GalleryImage {
+  id: string;
+  image_url: string;
+  created_at: string;
+}
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,7 +19,7 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<"categories" | "subcategories" | "products">("categories");
+  const [activeTab, setActiveTab] = useState<"categories" | "subcategories" | "products" | "gallery">("categories");
   const [searchTerm, setSearchTerm] = useState("");
 
   // Change Password State
@@ -25,6 +32,8 @@ export default function AdminPage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [galleryUploading, setGalleryUploading] = useState(false);
   
   // Form State
   const [editingCategory, setEditingCategory] = useState<Partial<Category> | null>(null);
@@ -115,18 +124,84 @@ export default function AdminPage() {
   const fetchData = async () => {
     setDataLoading(true);
     try {
-      const [catsRes, subcatsRes, prodsRes] = await Promise.all([
+      const [catsRes, subcatsRes, prodsRes, galleryRes] = await Promise.all([
         fetch("/api/categories"),
         fetch("/api/subcategories"),
         fetch("/api/products"),
+        fetch("/api/gallery/list"),
       ]);
       if (catsRes.ok) setCategories(await catsRes.json());
       if (subcatsRes.ok) setSubcategories(await subcatsRes.json());
       if (prodsRes.ok) setProducts(await prodsRes.json());
+      if (galleryRes.ok) {
+        const galleryData = await galleryRes.json();
+        if (Array.isArray(galleryData)) setGalleryImages(galleryData);
+      }
     } catch (error) {
       console.error("Veri çekme hatası:", error);
     } finally {
       setDataLoading(false);
+    }
+  };
+
+  const fetchGalleryImages = async () => {
+    try {
+      const res = await fetch("/api/gallery/list");
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setGalleryImages(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch images", error);
+    }
+  };
+
+  const handleGalleryUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    setGalleryUploading(true);
+    try {
+      const res = await fetch("/api/gallery/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (res.ok) {
+        fetchGalleryImages(); // Refresh list
+      } else {
+        alert("Upload failed");
+      }
+    } catch (error) {
+      console.error("Upload error", error);
+      alert("Upload error");
+    } finally {
+      setGalleryUploading(false);
+      // Reset input
+      e.target.value = "";
+    }
+  };
+
+  const handleGalleryDelete = async (id: string) => {
+    if (!confirm("Bu resmi silmek istediğinize emin misiniz?")) return;
+
+    try {
+      const res = await fetch("/api/gallery/delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+
+      if (res.ok) {
+        setGalleryImages(galleryImages.filter((img) => img.id !== id));
+      } else {
+        alert("Delete failed");
+      }
+    } catch (error) {
+      console.error("Delete error", error);
     }
   };
 
@@ -322,6 +397,16 @@ export default function AdminPage() {
           >
             Ürünler
           </button>
+          <button
+            onClick={() => setActiveTab("gallery")}
+            className={`pb-2 px-4 font-medium transition-colors whitespace-nowrap ${
+              activeTab === "gallery"
+                ? "border-b-2 border-primary text-primary"
+                : "text-gray-500 hover:text-primary"
+            }`}
+          >
+            Galeri
+          </button>
         </div>
 
         {/* Content */}
@@ -432,7 +517,7 @@ export default function AdminPage() {
               </table>
             </div>
           </div>
-        ) : (
+        ) : activeTab === "products" ? (
           <div>
             <div className="flex flex-col md:flex-row gap-4 mb-6 justify-between">
               <button
@@ -489,6 +574,56 @@ export default function AdminPage() {
                 </div>
               ))}
             </div>
+          </div>
+        ) : (
+          <div>
+            <div className="mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h2 className="text-lg font-semibold mb-4 text-gray-800">Yeni Resim Yükle</h2>
+              <div className="flex items-center gap-4">
+                <label className="cursor-pointer bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors flex items-center gap-2 shadow-md">
+                  {galleryUploading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
+                  <span className="font-medium">Resim Seç ve Yükle</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleGalleryUpload}
+                    disabled={galleryUploading}
+                    className="hidden"
+                  />
+                </label>
+                <p className="text-sm text-gray-500">
+                  Desteklenen formatlar: JPG, PNG, WEBP. Maksimum boyut: 5MB.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {galleryImages.map((img) => (
+                <div key={img.id} className="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                  <Image
+                    src={img.image_url}
+                    alt="Gallery"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button
+                      onClick={() => handleGalleryDelete(img.id)}
+                      className="bg-white/90 text-red-600 p-3 rounded-full hover:bg-red-50 transition-colors shadow-lg transform hover:scale-110"
+                      title="Resmi Sil"
+                    >
+                      <Trash2 className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {galleryImages.length === 0 && (
+              <div className="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                <p className="text-gray-500">Henüz hiç resim yüklenmemiş.</p>
+              </div>
+            )}
           </div>
         )}
 

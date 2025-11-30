@@ -11,9 +11,9 @@ import { Product } from "@/types";
 export const dynamic = "force-dynamic";
 
 const FEATURED_PRODUCT_NAMES = [
-  "Avokado Tost",
-  "Orman Meyveli Kase",
-  "Trüflü Mantarlı Makarna"
+  "Dana Bagle",
+  "Passion Guava",
+  "Magnolia"
 ];
 
 async function getFeaturedProducts(): Promise<Product[]> {
