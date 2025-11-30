@@ -36,7 +36,7 @@ export default function ProductList({ products, subcategories }: { products: Pro
                     
                     {/* Pill Label */}
                     <div className="px-6 py-2 bg-[#202020] border border-[#DFD0B8]/20 rounded-full shadow-xl z-10">
-                      <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase">
+                      <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase whitespace-nowrap">
                         {group.subcategory.name}
                       </h4>
                     </div>
@@ -70,7 +70,7 @@ export default function ProductList({ products, subcategories }: { products: Pro
                       
                       {/* Pill Label */}
                       <div className="px-6 py-2 bg-[#202020] border border-[#DFD0B8]/20 rounded-full shadow-xl z-10">
-                        <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase">
+                        <h4 className="text-lg font-serif font-bold text-[#DFD0B8] tracking-widest uppercase whitespace-nowrap">
                           Diğer
                         </h4>
                       </div>
@@ -172,11 +172,7 @@ export default function ProductList({ products, subcategories }: { products: Pro
 
 function ProductCard({ product, index, onClick }: { product: Product, index: number, onClick: () => void }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      viewport={{ once: true }}
+    <div
       onClick={onClick}
       className="group bg-[#333333] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-row items-center p-3 gap-4 h-auto border border-[#DFD0B8]/10 hover:border-[#DFD0B8]/50"
     >
@@ -225,6 +221,6 @@ function ProductCard({ product, index, onClick }: { product: Product, index: num
           </p>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
